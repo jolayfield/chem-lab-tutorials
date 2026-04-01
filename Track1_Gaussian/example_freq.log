@@ -1,0 +1,36 @@
+
+ Entering Gaussian System, Link 0=g16
+ #P B3LYP/def2-SVP Freq
+
+ Example frequency calculation — 6-atom organometallic fragment
+
+ SCF Done:  E(RB3LYP) =  -500.12345678     A.U. after   12 cycles
+
+ Full mass-weighted force constant matrix:
+ ...
+
+ Frequencies --    18.4183   35.6742   52.0896
+ Frequencies --    76.8234  112.3456  198.5123
+ Frequencies --   287.3891  412.6234  623.8451
+ Frequencies --  1245.3210 3021.4123 3089.6734
+
+ Zero-point correction=                           0.020895 (Hartree/Particle)
+ Thermal correction to Energy=                    0.029271
+ Thermal correction to Enthalpy=                  0.030215
+ Thermal correction to Gibbs Free Energy=         -0.013436
+ Sum of electronic and zero-point Energies=    -500.102562
+ Sum of electronic and thermal Energies=       -500.094186
+ Sum of electronic and thermal Enthalpies=     -500.093242
+ Sum of electronic and thermal Free Energies=  -500.136893
+
+ Temperature   298.150 Kelvin.  Pressure   1.00000 Atm.
+
+              E (Thermal)             CV                S
+              KCal/Mol        Cal/Mol-Kelvin    Cal/Mol-Kelvin
+ Total          18.3649           21.952           91.890
+ Electronic      0.000             0.000            0.000
+ Translational   0.889             2.981           41.500
+ Rotational      0.889             2.981           21.200
+ Vibrational    16.587            15.990           29.190
+
+ Normal termination of Gaussian 16

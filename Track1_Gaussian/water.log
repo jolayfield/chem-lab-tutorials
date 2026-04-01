@@ -1,0 +1,75 @@
+
+ Entering Gaussian System, Link 0=g16
+ %chk=water.chk
+ %mem=4GB
+ %nprocshared=4
+ ----------------------------------------------------------------------
+ #p B3LYP/6-31G* Opt Freq
+
+ Water molecule optimization and frequency calculation
+
+ ----------------------------------------------------------------------
+ Symbolic Z-matrix:
+ Charge =  0 Multiplicity = 1
+ O
+ H  1  r1
+ H  1  r1  2  a1
+
+       Variables:
+  r1                    0.96
+  a1                  104.5
+
+
+                          Input orientation:
+ ---------------------------------------------------------------------
+ Center     Atomic      Atomic             Coordinates (Angstroms)
+ Number     Number       Type             X           Y           Z
+ ---------------------------------------------------------------------
+      1          8           0        0.000000    0.000000    0.000000
+      2          1           0        0.000000    0.000000    0.960000
+      3          1           0        0.927516    0.000000   -0.240000
+ ---------------------------------------------------------------------
+
+ SCF Done:  E(RB3LYP) =  -76.4083579211     A.U. after    9 cycles
+            NFock= 9  Conv=0.47D-08     -V/T= 2.0089
+
+ SCF Done:  E(RB3LYP) =  -76.4186251034     A.U. after   10 cycles
+            NFock=10  Conv=0.38D-08     -V/T= 2.0091
+
+ SCF Done:  E(RB3LYP) =  -76.4187385461     A.U. after    9 cycles
+            NFock= 9  Conv=0.23D-08     -V/T= 2.0091
+
+                         Standard orientation:
+ ---------------------------------------------------------------------
+ Center     Atomic      Atomic             Coordinates (Angstroms)
+ Number     Number       Type             X           Y           Z
+ ---------------------------------------------------------------------
+      1          8           0        0.000000    0.000000    0.117176
+      2          1           0        0.000000    0.757306   -0.468706
+      3          1           0        0.000000   -0.757306   -0.468706
+ ---------------------------------------------------------------------
+
+ Rotational constants (GHZ):         836.3077963         434.9876987         286.8513882
+
+ Zero-point correction=                           0.020908 (Hartree/Particle)
+ Thermal correction to Energy=                    0.023742
+ Thermal correction to Enthalpy=                  0.024686
+ Thermal correction to Gibbs Free Energy=         0.003610
+ Sum of electronic and zero-point Energies=     -76.397830
+ Sum of electronic and thermal Energies=        -76.394996
+ Sum of electronic and thermal Enthalpies=      -76.394052
+ Sum of electronic and thermal Free Energies=  -76.415128
+
+ E (Thermal)             CV                CP                S
+ KCal/Mol        Cal/Mol-Kelvin    Cal/Mol-Kelvin    Cal/Mol-Kelvin
+ 14.896              6.002             8.314             44.278
+
+ Zero-point vibrational energy     130943.2 (Joules/Mol)
+                                    31.298 (Kcal/Mol)
+
+ Frequencies --   1589.0765                3703.9127                3807.0960
+ Red. masses --      1.0831                   1.0451                   1.0818
+ Frc consts  --      1.6145                   8.4518                   9.2448
+ IR Inten    --     67.1785                  10.4654                  49.3234
+
+ Normal termination of Gaussian 16 at Mon Mar 14 12:34:56 2026.

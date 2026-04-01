@@ -1,0 +1,34 @@
+# Jupyter / IPython
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+*.pyc
+__pycache__/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python environments
+.env
+.venv
+env/
+venv/
+
+# AaronTools cache
+AARONLIB/
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Large binary / output files (add your own as needed)
+*.chk
+*.fchk
+*.rwf
+*.d2e
+*.int
+*.skr
+*.tmp
