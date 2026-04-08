@@ -50,15 +50,31 @@ Analyze MD simulation trajectories using Python. The notebooks use a built-in te
 
 ---
 
+## Track 3 — PLUMED: Collective Variables and Enhanced Sampling
+
+Learn to use PLUMED with GROMACS for CV analysis and enhanced sampling simulations. Synthetic COLVAR data is generated in the setup cell so every analysis section runs in Colab without a PLUMED or GROMACS installation.
+
+| Notebook | Open in Colab |
+|----------|--------------|
+| PLUMED: Collective Variables, Analysis, and OPES Enhanced Sampling | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jolayfield/chem-lab-tutorials/blob/main/Track3_PLUMED/plumed_tutorial.ipynb) |
+
+**Topics covered:** `plumed driver` for post-processing trajectories, CV definitions (distances, dihedrals, RMSD, coordination number), OPES_METAD for free energy surfaces along structural CVs, OPES_EXPANDED for multithermal and alchemical expanded ensemble simulations, reweighting, block averaging for uncertainty estimates.
+
+**Packages installed automatically:** `plumed` (Python API). `numpy`, `matplotlib`, and `pandas` are pre-installed in Colab. The standalone `plumed` binary and GROMACS require a separate HPC installation.
+
+---
+
 ## Dependencies at a glance
 
 | Package | Version | Installed by setup cell? | Notes |
 |---------|---------|--------------------------|-------|
 | `numpy` | any | No — pre-installed in Colab | |
 | `matplotlib` | any | No — pre-installed in Colab | |
+| `pandas` | any | No — pre-installed in Colab | |
 | `AaronTools` | ≥ 1.0 | Yes (Track 1, Parts 3) | Gaussian log parsing and geometry tools |
 | `MDAnalysis` | ≥ 2.0 | Yes (Track 2 MDAnalysis intro) | MD trajectory analysis |
 | `MDAnalysisTests` | ≥ 2.0 | Yes (Track 2 MDAnalysis intro) | Provides built-in test trajectory |
+| `plumed` | ≥ 2.7 | Yes (Track 3) | Python API; standalone binary requires HPC install |
 
 ---
 
@@ -78,12 +94,14 @@ chem-lab-tutorials/
 │   ├── part4_demo.ipynb
 │   ├── water.log                     ← Gaussian output (H2O B3LYP/6-31G*)
 │   └── example_freq.log              ← Gaussian frequency output
-└── Track2_MDAnalysis/
-    ├── part1_student.ipynb
-    ├── part1_instructor.ipynb
-    ├── mdanalysis_intro_student.ipynb
-    ├── mdanalysis_intro_instructor.ipynb
-    └── mdanalysis_intro_demo.ipynb
+├── Track2_MDAnalysis/
+│   ├── part1_student.ipynb
+│   ├── part1_instructor.ipynb
+│   ├── mdanalysis_intro_student.ipynb
+│   ├── mdanalysis_intro_instructor.ipynb
+│   └── mdanalysis_intro_demo.ipynb
+└── Track3_PLUMED/
+    └── plumed_tutorial.ipynb         ← PLUMED driver, OPES_METAD, OPES_EXPANDED
 ```
 
 ---
