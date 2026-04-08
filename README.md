@@ -50,17 +50,25 @@ Analyze MD simulation trajectories using Python. The notebooks use a built-in te
 
 ---
 
-## Track 3 — PLUMED: Collective Variables and Enhanced Sampling
+## Track 3 — PLUMED, Neural Networks, and Machine-Learned CVs
 
-Learn to use PLUMED with GROMACS for CV analysis and enhanced sampling simulations. Synthetic COLVAR data is generated in the setup cell so every analysis section runs in Colab without a PLUMED or GROMACS installation.
+Covers PLUMED enhanced sampling, neural network foundations with PyTorch, and machine-learned collective variables with the mlcolvar library. All notebooks run fully in Colab using synthetic data.
 
 | Notebook | Open in Colab |
 |----------|--------------|
 | PLUMED: Collective Variables, Analysis, and OPES Enhanced Sampling | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jolayfield/chem-lab-tutorials/blob/main/Track3_PLUMED/plumed_tutorial.ipynb) |
+| Introduction to Neural Networks with PyTorch | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jolayfield/chem-lab-tutorials/blob/main/Track3_PLUMED/nn_intro_pytorch.ipynb) |
+| Machine-Learned CVs with mlcolvar: Deep-LDA and Deep-TICA | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jolayfield/chem-lab-tutorials/blob/main/Track3_PLUMED/mlcolvar_deeplda_deeptica.ipynb) |
 
-**Topics covered:** `plumed driver` for post-processing trajectories, CV definitions (distances, dihedrals, RMSD, coordination number), OPES_METAD for free energy surfaces along structural CVs, OPES_EXPANDED for multithermal and alchemical expanded ensemble simulations, reweighting, block averaging for uncertainty estimates.
+**Recommended order:** PLUMED tutorial → NN intro → mlcolvar. Each notebook builds on the previous.
 
-**Packages installed automatically:** `plumed` (Python API). `numpy`, `matplotlib`, and `pandas` are pre-installed in Colab. The standalone `plumed` binary and GROMACS require a separate HPC installation.
+**PLUMED topics:** `plumed driver` for post-processing trajectories, CV definitions (distances, dihedrals, RMSD, coordination number), OPES_METAD for free energy surfaces, OPES_EXPANDED for multithermal and alchemical simulations, reweighting, block averaging.
+
+**NN intro topics:** Single neuron math, activation functions (sigmoid, tanh, ReLU, Softplus, GELU, Leaky ReLU) with analytical and autograd gradient verification, forward pass matrix math, backpropagation chain-rule derivation with numerical verification, PyTorch training loop, double-well potential fitting, 2D conformation classification, neural network potentials (ANI, SchNet, MACE), learned CVs overview.
+
+**mlcolvar topics:** Library architecture (BaseCV, DictDataset, LightningModule), Deep-LDA theory (Fisher discriminant eigenvalue problem) and training, Deep-TICA theory (time-lagged covariance eigenvalue problem) and training, feature sensitivity analysis, PLUMED export via TorchScript. Uses synthetic alanine dipeptide data consistent with the PLUMED notebook.
+
+**Packages installed automatically:** `plumed` (Python API, PLUMED notebook); `torch` (NN intro); `mlcolvar`, `lightning` (mlcolvar notebook). `numpy`, `matplotlib`, and `pandas` are pre-installed in Colab. The standalone `plumed` binary and GROMACS require a separate HPC installation.
 
 ---
 
@@ -74,7 +82,10 @@ Learn to use PLUMED with GROMACS for CV analysis and enhanced sampling simulatio
 | `AaronTools` | ≥ 1.0 | Yes (Track 1, Parts 3) | Gaussian log parsing and geometry tools |
 | `MDAnalysis` | ≥ 2.0 | Yes (Track 2 MDAnalysis intro) | MD trajectory analysis |
 | `MDAnalysisTests` | ≥ 2.0 | Yes (Track 2 MDAnalysis intro) | Provides built-in test trajectory |
-| `plumed` | ≥ 2.7 | Yes (Track 3) | Python API; standalone binary requires HPC install |
+| `plumed` | ≥ 2.7 | Yes (Track 3 PLUMED) | Python API; standalone binary requires HPC install |
+| `torch` | ≥ 2.0 | Yes (Track 3 NN intro) | PyTorch; usually pre-installed on Colab |
+| `mlcolvar` | ≥ 1.3 | Yes (Track 3 mlcolvar) | Machine-learned CV framework |
+| `lightning` | ≥ 2.0 | Yes (Track 3 mlcolvar) | PyTorch Lightning training framework |
 
 ---
 
@@ -101,7 +112,9 @@ chem-lab-tutorials/
 │   ├── mdanalysis_intro_instructor.ipynb
 │   └── mdanalysis_intro_demo.ipynb
 └── Track3_PLUMED/
-    └── plumed_tutorial.ipynb         ← PLUMED driver, OPES_METAD, OPES_EXPANDED
+    ├── plumed_tutorial.ipynb         ← PLUMED driver, OPES_METAD, OPES_EXPANDED
+    ├── nn_intro_pytorch.ipynb        ← NN foundations, backprop, PyTorch training
+    └── mlcolvar_deeplda_deeptica.ipynb ← Deep-LDA, Deep-TICA, PLUMED export
 ```
 
 ---
