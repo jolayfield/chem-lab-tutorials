@@ -26,6 +26,16 @@ Rules:
 - Include an opening slide (title + learning objectives) and a closing slide (summary + further reading topics)
 - Group slides into logical sections; introduce each section with a brief section-header slide that just lists what the section covers
 
+## File output
+
+After generating the slide deck, write it to a Markdown file in the `lecture-slides/` subfolder of the current working directory. Create the folder if it does not exist.
+
+Filename convention: lowercase, hyphens for spaces, no special characters. Examples:
+- "molecular dynamics" → `lecture-slides/molecular-dynamics.md`
+- "density functional theory" → `lecture-slides/density-functional-theory.md`
+
+Use the Write tool to create the file. After writing, tell the user the file path.
+
 ## Audience
 
 Assume advanced undergraduate or first-year graduate students in chemistry or chemical engineering. They know calculus and basic physical chemistry but may not have prior programming or simulation experience.
