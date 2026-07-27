@@ -39,14 +39,19 @@ Work with real Gaussian 16 output files using Python. No Gaussian license requir
 
 ## Track 2 — Molecular Dynamics Analysis with MDAnalysis
 
-Analyze MD simulation trajectories using Python. The notebooks use a built-in test trajectory (adenylate kinase, GROMACS format) so you can run every cell without your own simulation data.
+Analyze MD simulation trajectories using Python. The first two notebooks use a built-in test trajectory (adenylate kinase, GROMACS format) so you can run every cell without your own simulation data. The OPES notebook downloads a real GROMACS + PLUMED tetrapeptide simulation from this repository.
 
 | Notebook | Open in Colab |
 |----------|--------------|
 | Part 1: Core Concepts (Data Analysis) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jolayfield/chem-lab-tutorials/blob/main/Track2_MDAnalysis/part1_student.ipynb) |
 | Introduction to MDAnalysis: Analyzing Peptide Simulations | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jolayfield/chem-lab-tutorials/blob/main/Track2_MDAnalysis/mdanalysis_intro_student.ipynb) |
+| OPES Multithermal Simulation of a Tetrapeptide: MDAnalysis Meets PLUMED | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jolayfield/chem-lab-tutorials/blob/main/Track2_MDAnalysis/opes_multithermal_student.ipynb) |
 
-**Packages installed automatically:** `MDAnalysis`, `MDAnalysisTests`. `numpy` and `matplotlib` are pre-installed in Colab.
+**Packages installed automatically:** `MDAnalysis`, `MDAnalysisTests`. `numpy`, `matplotlib`, and `pandas` are pre-installed in Colab.
+
+**OPES notebook topics:** Derives the 3D distance formula and the backbone torsion-angle formula from raw xyz coordinates (connecting dihedrals to Newman projections from organic chemistry); periodic boundary conditions and the minimum-image convention; the "broken molecule" `unwrap()` pitfall; radius of gyration computed by hand; parsing PLUMED COLVAR files; cross-validating MDAnalysis geometry against PLUMED's own collective variables; OPES multithermal bias, reweighting, and effective sample size. Assumes only intro biology and organic chemistry — no statistical mechanics background.
+
+**OPES notebook data:** A Val–Pro–Tyr–Leu tetrapeptide in explicit water (6.46 ns, GROMACS + PLUMED), in `Track2_MDAnalysis/data/opes_tetrapeptide/`. The setup cell downloads all four files (~21 MB) automatically.
 
 ---
 

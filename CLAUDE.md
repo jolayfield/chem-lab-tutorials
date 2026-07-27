@@ -24,6 +24,10 @@ chem-lab-tutorials/
 ├── Track2_MDAnalysis/                ← MD trajectory analysis
 │   ├── part1_{student,instructor}.ipynb
 │   ├── mdanalysis_intro_{student,instructor,demo}.ipynb
+│   ├── opes_multithermal_{student,instructor,demo}.ipynb
+│   └── data/opes_tetrapeptide/       ← real GROMACS+PLUMED tetrapeptide data
+│       ├── finalrun.{gro,tpr,xtc}    ← VAL-PRO-TYR-LEU, 6.46 ns, 324 frames
+│       └── finalrun.colvar           ← PLUMED COLVAR, 65,133 rows, dt 0.1 ps
 └── Track3_PLUMED/                    ← PLUMED, neural networks, machine-learned CVs
     ├── plumed_tutorial.ipynb
     ├── nn_intro_pytorch.ipynb
@@ -60,9 +64,20 @@ Parse real Gaussian `.log` files using only the Python standard library + numpy 
 Key topics: SCF energy extraction, thermochemical data parsing, normal termination verification, Standard orientation geometry, bond lengths/angles, AaronTools structure alignment.
 
 ### Track 2 — Molecular Dynamics Analysis (MDAnalysis)
-Analyze MD trajectories. Uses the built-in adenylate kinase test trajectory (GROMACS format) from `MDAnalysisTests` — no user-supplied simulation data required.
+`part1` and `mdanalysis_intro` analyze the built-in adenylate kinase test trajectory (GROMACS format) from `MDAnalysisTests` — no user-supplied simulation data required.
 
 Setup installs: `MDAnalysis`, `MDAnalysisTests`
+
+**`opes_multithermal`** is the exception: it uses **real simulation data committed to this repo** under `data/opes_tetrapeptide/` (a Val–Pro–Tyr–Leu tetrapeptide in explicit water, GROMACS + PLUMED, OPES multithermal). Its setup cell downloads the four files from GitHub `raw` rather than using `MDAnalysisTests`, so it installs only `MDAnalysis`.
+
+Key topics: deriving distance and torsion-angle formulas from xyz coordinates; periodic boundary conditions and the minimum-image convention; `unwrap(compound='fragments')` and the broken-molecule artifact; parsing PLUMED COLVAR files; cross-validating MDAnalysis against PLUMED CVs; OPES bias, reweighting, effective sample size. Written for students with intro biology + organic chemistry only.
+
+Three data quirks this notebook teaches deliberately — do not "fix" them in the data files:
+- `finalrun.colvar`'s **final line is truncated** (job hit its wall-clock limit mid-write); parsed with `.dropna()` → 65,133 usable rows.
+- Half the COLVAR rows have `ene` **exactly 0.0** on alternating rows (GROMACS `nstcalcenergy` artifact). This corrupts `opes.bias` on those same rows — both must be filtered before any energy or reweighting analysis.
+- PLUMED's `rg` column was defined over **Cα atoms only**, not all protein atoms. Section 8 has students discover this by finding which selection reproduces PLUMED's numbers.
+
+Verified reference values (any edit to this notebook should preserve these): 12,451 atoms, 73 protein atoms, 4,126 waters, 324 frames at 20 ps, 6,460 ps total; MDAnalysis vs PLUMED dihedrals agree to ≤1.19° (residual is `.xtc` lossy compression); Cα-only Rg matches PLUMED to 1.15e-4 nm.
 
 ### Track 3 — PLUMED, Neural Networks, and Machine-Learned CVs
 Recommended order: PLUMED tutorial → NN intro → mlcolvar notebook.
@@ -80,7 +95,7 @@ Recommended order: PLUMED tutorial → NN intro → mlcolvar notebook.
 | `numpy`, `matplotlib`, `pandas` | No — pre-installed in Colab | |
 | `AaronTools` (≥ 1.0) | Yes | Track 1, Part 3 only |
 | `MDAnalysis` (≥ 2.0) | Yes | Track 2 |
-| `MDAnalysisTests` (≥ 2.0) | Yes | Track 2 — provides test trajectory |
+| `MDAnalysisTests` (≥ 2.0) | Yes | Track 2 — provides test trajectory; not needed by `opes_multithermal` |
 | `plumed` (≥ 2.7) | Yes | Track 3 PLUMED; Python API only |
 | `torch` (≥ 2.0) | Yes | Track 3 NN intro; often pre-installed on Colab |
 | `mlcolvar` (≥ 1.3) | Yes | Track 3 mlcolvar |
